@@ -1,5 +1,17 @@
 
 
+window.onload = loadfromDB;
+
+function loadfromDB(){
+  $.ajax({
+    type: "POST",
+    url: "loadfromdb",
+    data: {
+           },
+    success: callbackFunc
+});
+}
+
 function newItem() {
     var itemI = document.getElementById("inputI").value;
     var ulI = document.getElementById("listI");
@@ -12,7 +24,7 @@ function newItem() {
     document.getElementById("inputVal").value = "";
     li.onclick = removeItem;
     console.log("clicked");
-   processData(itemI, itemVal);
+   addtodb(itemI, itemVal);
    console.log("clicked2");
 
   }
@@ -24,10 +36,18 @@ function newItem() {
   };
   
   function removeItem(e) {
+    console.log(e.target.parentElement.textContent);
+    $.ajax({
+      type: "POST",
+      url: "removefromdb",
+      data: { 'torem1' : e.target.parentElement.textContent.split(' ')[1].split(',')[0],
+             },
+      success: callbackFunc
+  });
     e.target.parentElement.removeChild(e.target);
   }
   
-  function processData(itemI, itemVal) {
+  function addtodb(itemI, itemVal) {
     $.ajax({
       type: "POST",
       url: "addtodb",

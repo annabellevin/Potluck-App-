@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class PotluckData(models.Model):
+    dish = models.CharField(max_length=200)
+    qty = models.CharField(max_length=200)
+    takenby = models.CharField(max_length=200)

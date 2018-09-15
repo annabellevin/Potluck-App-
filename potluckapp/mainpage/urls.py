@@ -6,5 +6,7 @@ from django.http import HttpRequest as request
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('addtodb', addtodb.addtodb, name='POST')
+    path('addtodb', addtodb.addtodb, name='POST'),
+    path('loadfromdb', addtodb.loadfromdb),
+    path('removefromdb', addtodb.removefromdb, name='POST')
 ]
