@@ -16,8 +16,18 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth import views as auth_views
+from django.conf.urls import url
+
+#from register.core import views as core_views
 
 urlpatterns = [
     path('home/', include('mainpage.urls')),
+    #path('home/test.py', mainpage.addtodb),
+   # path('register/', include('register.urls')),
+   # path('login/', include('login.urls')),
+    url( r'^login/$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
+   # url(r'^signup/$', core_views.signup, name='signup'),
+   # url(r'^logout/$', auth_views.logout, name='logout'),
     path('admin/', admin.site.urls),
 ]
