@@ -54,7 +54,7 @@ ROOT_URLCONF = 'potluckapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/annabel/python/potluck/Potluck App /potluckapp/potluckapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
